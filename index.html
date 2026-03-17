@@ -283,6 +283,37 @@
       line-height: 1.7;
     }
     .focus-card .tag-row { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1rem; }
+    .focus-works {
+      margin-top: 1rem;
+      padding-top: .75rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+    .focus-work-item {
+      font-family: var(--mono);
+      font-size: .7rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: baseline;
+      gap: .5rem;
+      transition: color .2s;
+      text-decoration: none;
+    }
+    .focus-work-item:hover { color: var(--accent); }
+    .fw-venue {
+      flex-shrink: 0;
+      font-size: .62rem;
+      font-weight: 700;
+      padding: .1rem .4rem;
+      border-radius: 2px;
+      background: rgba(212,168,83,.1);
+      color: var(--accent);
+      border: 1px solid rgba(212,168,83,.15);
+    }
+    .fw-venue.teal { background: rgba(107,184,168,.1); color: var(--accent-2); border-color: rgba(107,184,168,.15); }
+    .fw-venue.purple { background: rgba(196,125,219,.1); color: var(--accent-3); border-color: rgba(196,125,219,.15); }
     .tag {
       font-family: var(--mono);
       font-size: .65rem;
@@ -580,13 +611,13 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-label" style="white-space: nowrap;">Engineer · Researcher · ex. US Faculty Member</div>
-      <div class="hero-tech" style="font-family: var(--mono); font-size: .92rem; color: var(--accent-2); margin-top: 2.2rem; opacity: 0; animation: fadeUp .6s .45s forwards;">
-        Rust · Python · Java · SPEC-driven development · vibe coding
-      </div>
       <h1 class="hero-name">Haoyi "Bertrand" Xiong<span class="cn">熊昊一</span></h1>
       <p class="hero-title">
         I design and ship <strong>Agentic AI</strong> systems at <strong>web-scale</strong>...
       </p>
+      <div class="hero-tech" style="font-family: var(--mono); font-size: .92rem; color: var(--accent-2); margin-bottom: 1.25rem; opacity: 0; animation: fadeUp .6s .45s forwards;">
+        w. Rust · Python · Java · SPEC-driven development · vibe coding
+      </div>
       <p class="hero-bio">
         Ph.D. in Computer Science from Télécom SudParis / Université Pierre et Marie Curie, France (2015). Postdoc at University of Virginia, then tenure-track Assistant Professor at Missouri S&amp;T. Since 2018, held technical staff roles at Baidu and Microsoft. This is a personal site — opinions are my own.
       </p>
@@ -610,15 +641,25 @@
             <span class="tag">Function Calling</span>
             <span class="tag">Tool Orchestration</span>
           </div>
+          <div class="focus-works">
+            <a class="focus-work-item" href="https://arxiv.org/abs/2602.13665" target="_blank"><span class="fw-venue">KDD'26</span>HyFunc: Accelerating LLM-based Function Calls for Agentic AI</a>
+            <a class="focus-work-item" href="#" target="_blank"><span class="fw-venue">KDD'26</span>Retain to Refine: Adaptive Online QA via Query Routing &amp; Memory</a>
+            <a class="focus-work-item" href="#" target="_blank"><span class="fw-venue">KDD'25</span>Multi-Agent Proactive Info Seeking with Adaptive LLM Orchestration</a>
+          </div>
         </div>
         <div class="focus-card">
           <span class="icon">🔍</span>
           <h3>Data Science, ML &amp; Search</h3>
-          <p>Next-gen search fusing LLMs with learning-to-rank, multi-objective optimization, and KV cache pruning at web-scale.</p>
+            <p>From learning theory and statistical data sciences to learning-to-rank systems at web-scale.</p>
           <div class="tag-row">
+            <span class="tag teal">Learning Theory</span>
+            <span class="tag teal">Interpretability</span>
             <span class="tag teal">Learning to Rank</span>
-            <span class="tag teal">Web Search</span>
-            <span class="tag teal">LLM + Search</span>
+          </div>
+          <div class="focus-works">
+            <a class="focus-work-item" href="https://openreview.net/pdf?id=pnvwqcZsha" target="_blank"><span class="fw-venue teal">KDD'25</span>RankElectra: Semi-supervised Pre-training of L2R Electra for Web Search</a>
+            <a class="focus-work-item" href="https://openreview.net/pdf?id=qKL25sGjxL" target="_blank"><span class="fw-venue teal">ICML'24</span>GiLot: Interpreting Natural Language Generation via Optimal Transport</a>
+            <a class="focus-work-item" href="https://arxiv.org/pdf/1906.07405" target="_blank"><span class="fw-venue teal">ICML'20</span>On the Noisy Gradient Descent that Generalizes as SGD</a>
           </div>
         </div>
         <div class="focus-card">
@@ -630,6 +671,11 @@
             <span class="tag purple">MLOps</span>
             <span class="tag purple">GNNs</span>
           </div>
+          <div class="focus-works">
+            <a class="focus-work-item" href="https://xhyccc.github.io/pglbox.pdf" target="_blank"><span class="fw-venue purple">KDD'23</span>PGLBox: Multi-GPU Graph Learning for Web-Scale Recommendation</a>
+            <a class="focus-work-item" href="https://arxiv.org/pdf/2106.01674" target="_blank"><span class="fw-venue purple">KDD'21</span>JIZHI: A Fast Model-As-A-Service System for Web-Scale Inference at Baidu</a>
+            <a class="focus-work-item" href="https://arxiv.org/pdf/2205.10034" target="_blank"><span class="fw-venue purple">TSC</span>MoESys: Distributed and Efficient MoE Training &amp; Inference for Internet Services</a>
+          </div>
         </div>
         <div class="focus-card">
           <span class="icon">🧬</span>
@@ -639,6 +685,11 @@
             <span class="tag">Molecular LMs</span>
             <span class="tag teal">Drug Discovery</span>
             <span class="tag purple">XAI</span>
+          </div>
+          <div class="focus-works">
+            <a class="focus-work-item" href="https://www.nature.com/articles/s42256-024-00836-4.pdf" target="_blank"><span class="fw-venue">Nature MI'24</span>Multi-purpose RNA Language Modeling with Motif-aware Pre-training</a>
+            <a class="focus-work-item" href="https://www.nature.com/articles/s44387-025-00029-3.pdf" target="_blank"><span class="fw-venue">npj AI'25</span>Pre-trained Molecular Language Models with Random Functional Group Masking</a>
+            <a class="focus-work-item" href="https://arxiv.org/pdf/2107.10670" target="_blank"><span class="fw-venue">KDD'21</span>Structure-aware Interactive GNNs for Protein-Ligand Binding Affinity</a>
           </div>
         </div>
       </div>

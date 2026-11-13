@@ -24,7 +24,9 @@ jobs:
           python-version: "3.12"
 
       - name: Fetch public Scholar profile
-        run: python scripts/update_scholar_metrics.py
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: python scripts/update_scholar_metrics.py --soft-fail
 
       - name: Commit changed metrics
         run: |

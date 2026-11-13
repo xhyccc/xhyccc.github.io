@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Haoyi "Bertrand" Xiong — Engineer · Researcher · Builder</title>
-  <meta name="description" content="Haoyi Bertrand Xiong — Building agentic AI systems and AI-powered search at web-scale." />
+  <meta name="description" content="Haoyi Bertrand Xiong — Building agentic AI systems, pattern-oriented harness engineering, and AI-powered search at web-scale." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +57,7 @@
 
     /* ───────────────── LAYOUT ───────────────── */
     .container { width: 95%; max-width: 1600px; margin: 0 auto; padding: 0; }
-    section { padding: 6rem 0; }
+    section { padding: 6rem 0; scroll-margin-top: 76px; }
 
     /* ───────────────── NAV ───────────────── */
     nav {
@@ -432,6 +432,72 @@
       margin-left: .5rem;
     }
 
+    /* ───────────────── RESEARCH ───────────────── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .research-card {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      min-height: 280px;
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      transition: border-color .25s, transform .25s, background .25s;
+    }
+    .research-card:hover {
+      border-color: var(--accent-2);
+      background: var(--bg-hover);
+      transform: translateY(-2px);
+      color: var(--text);
+    }
+    .research-kicker {
+      font-family: var(--mono);
+      font-size: .66rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+    }
+    .research-card h3 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+    .research-card p {
+      font-size: .92rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+    }
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: auto;
+      padding-top: .5rem;
+    }
+    .research-tags span {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .06em;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: .22rem .45rem;
+    }
+    .research-link {
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .04em;
+      color: var(--accent);
+      margin-top: .25rem;
+    }
+
     /* ───────────────── AWARDS ───────────────── */
     .awards-grid {
       display: grid;
@@ -582,6 +648,7 @@
       }
       .hamburger { display: block; }
       .focus-grid { grid-template-columns: 1fr; }
+      .research-grid { grid-template-columns: 1fr; }
       .service-list { grid-template-columns: 1fr; }
       .pub-item { flex-direction: column; gap: .5rem; }
       .pub-venue { min-width: auto; align-self: flex-start; }
@@ -599,6 +666,7 @@
     <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
     <ul class="nav-links">
       <li><a href="#focus">Focus</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#awards">Awards</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="blogs/">Blog</a></li>
@@ -693,6 +761,33 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ RESEARCH ═══════════════ -->
+<section id="research">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// Research &amp; open work</div>
+      <h2 class="section-title">Patterns for agent harnesses</h2>
+      <p class="section-desc">Recurring design decisions around AI agents — what may vary, what must hold, and what happens when it does not. Published as an open field guide and a working agent package.</p>
+    </div>
+    <div class="research-grid reveal">
+      <a class="research-card" href="https://xhyccc.github.io/pohe/" target="_blank" rel="noopener">
+        <span class="research-kicker">Field guide / 2026</span>
+        <h3>Pattern-Oriented Harness Engineering</h3>
+        <p>A field guide to 52 harness design records: UML class views, object interactions, pointcuts, protected contracts, permitted variation, evidence, and lifecycle questions.</p>
+        <div class="research-tags"><span>52 records</span><span>A² taxonomy</span><span>UML + interactions</span><span>Evidence ladder</span></div>
+        <span class="research-link">xhyccc.github.io/pohe ↗</span>
+      </a>
+      <a class="research-card" href="https://xhyccc.github.io/pohe/agent.html" target="_blank" rel="noopener">
+        <span class="research-kicker">Open agent package</span>
+        <h3>POHE Agent</h3>
+        <p>An agent, CLI, and three skills that detect pattern cues in an arbitrary repository, pull structural candidates into source review, and plan pattern-guided harness evolution without losing the protected contract.</p>
+        <div class="research-tags"><span>AGENTS.md</span><span>3 skills</span><span>stdlib CLI</span><span>MIT</span></div>
+        <span class="research-link">xhyccc.github.io/pohe/agent.html ↗</span>
+      </a>
     </div>
   </div>
 </section>

@@ -104,13 +104,13 @@
 
     /* ───────────────── HERO ───────────────── */
     .hero {
-      min-height: 100vh;
+      min-height: auto;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       position: relative;
       overflow: hidden;
-      padding-top: 5rem;
+      padding: 9rem 0 4.5rem;
     }
     .hero .container {
       display: flex;
@@ -177,6 +177,58 @@
       gap: .75rem;
       flex-wrap: wrap;
       opacity: 0; animation: fadeUp .6s .4s forwards;
+    }
+    .hero-metrics {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: .55rem 1.4rem;
+      margin-top: 1.75rem;
+      opacity: 0; animation: fadeUp .6s .48s forwards;
+    }
+    .hero-metric {
+      display: flex;
+      flex-direction: column;
+      gap: .2rem;
+    }
+    .hero-metric + .hero-metric {
+      border-left: 1px solid var(--border);
+      padding-left: 1.4rem;
+    }
+    .hero-metric-value {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+    .hero-metric-label {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .hero-metric-source {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding-bottom: .15rem;
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .04em;
+      color: var(--text-dim);
+    }
+    .hero-metric-source a { color: var(--accent); }
+    .hero-metric-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 0 3px rgba(107,184,168,.12);
+    }
+    .focus-band {
+      padding: 2.5rem 0 5rem;
+      border-top: 1px solid rgba(42,42,48,.45);
     }
     .hero-focus {
       position: relative;
@@ -635,6 +687,8 @@
     @media (max-width: 768px) {
       section { padding: 4rem 0; }
       .container { padding: 0 1.25rem; }
+      .hero { padding: 7rem 0 3.5rem; }
+      .hero-label { white-space: normal !important; letter-spacing: .14em; line-height: 1.6; }
       .nav-links { display: none; }
       .nav-links.open {
         display: flex;
@@ -648,6 +702,10 @@
       }
       .hamburger { display: block; }
       .focus-grid { grid-template-columns: 1fr; }
+      .hero-metrics { gap: .8rem 1rem; }
+      .hero-metric + .hero-metric { padding-left: 1rem; }
+      .hero-metric-value { font-size: 1.3rem; }
+      .hero-metric-source { flex-basis: 100%; }
       .research-grid { grid-template-columns: 1fr; }
       .service-list { grid-template-columns: 1fr; }
       .pub-item { flex-direction: column; gap: .5rem; }
@@ -665,8 +723,8 @@
     <a class="nav-logo" href="#">HX_</a>
     <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
     <ul class="nav-links">
-      <li><a href="#focus">Focus</a></li>
       <li><a href="#research">Research</a></li>
+      <li><a href="#focus">Focus</a></li>
       <li><a href="#awards">Awards</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="blogs/">Blog</a></li>
@@ -674,8 +732,8 @@
   </div>
 </nav>
 
-<!-- ═══════════════ HERO + FOCUS ═══════════════ -->
-<section class="hero" id="focus">
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="top">
   <div class="container">
     <div class="hero-content">
       <div class="hero-label" style="white-space: nowrap;">Engineer · Researcher · ex. US Faculty Member</div>
@@ -696,7 +754,59 @@
         <a class="btn" href="https://x.com/xhyccc">X</a>
         <a class="btn" href="blogs/">Blog</a>
       </div>
+      <div class="hero-metrics" id="scholar-metrics" aria-label="Google Scholar citation metrics">
+        <div class="hero-metric">
+          <span class="hero-metric-value" data-scholar="citations">12,269</span>
+          <span class="hero-metric-label">Citations</span>
+        </div>
+        <div class="hero-metric">
+          <span class="hero-metric-value" data-scholar="hindex">57</span>
+          <span class="hero-metric-label">h-index</span>
+        </div>
+        <div class="hero-metric">
+          <span class="hero-metric-value" data-scholar="i10">150</span>
+          <span class="hero-metric-label">i10-index</span>
+        </div>
+        <div class="hero-metric-source">
+          <span class="hero-metric-dot" aria-hidden="true"></span>
+          <a href="https://scholar.google.com/citations?user=f_Kcie0AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <span data-scholar="updated">· updated daily</span>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════ RESEARCH ═══════════════ -->
+<section id="research">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">// Research &amp; open work</div>
+      <h2 class="section-title">Patterns for agent harnesses</h2>
+      <p class="section-desc">Recurring design decisions around AI agents — what may vary, what must hold, and what happens when it does not. Published as an open field guide and a working agent package.</p>
+    </div>
+    <div class="research-grid reveal">
+      <a class="research-card" href="https://xhyccc.github.io/pohe/" target="_blank" rel="noopener">
+        <span class="research-kicker">Field guide / 2026</span>
+        <h3>Pattern-Oriented Harness Engineering</h3>
+        <p>A field guide to 52 harness design records: UML class views, object interactions, pointcuts, protected contracts, permitted variation, evidence, and lifecycle questions.</p>
+        <div class="research-tags"><span>52 records</span><span>A² taxonomy</span><span>UML + interactions</span><span>Evidence ladder</span></div>
+        <span class="research-link">xhyccc.github.io/pohe ↗</span>
+      </a>
+      <a class="research-card" href="https://xhyccc.github.io/pohe/agent.html" target="_blank" rel="noopener">
+        <span class="research-kicker">Open agent package</span>
+        <h3>POHE Agent</h3>
+        <p>An agent, CLI, and three skills that detect pattern cues in an arbitrary repository, pull structural candidates into source review, and plan pattern-guided harness evolution without losing the protected contract.</p>
+        <div class="research-tags"><span>AGENTS.md</span><span>3 skills</span><span>stdlib CLI</span><span>MIT</span></div>
+        <span class="research-link">xhyccc.github.io/pohe/agent.html ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOCUS ═══════════════ -->
+<section id="focus" class="focus-band">
+  <div class="container">
     <div class="hero-focus">
       <div class="hero-focus-label">// What I build</div>
       <div class="focus-grid">
@@ -761,33 +871,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ RESEARCH ═══════════════ -->
-<section id="research">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">// Research &amp; open work</div>
-      <h2 class="section-title">Patterns for agent harnesses</h2>
-      <p class="section-desc">Recurring design decisions around AI agents — what may vary, what must hold, and what happens when it does not. Published as an open field guide and a working agent package.</p>
-    </div>
-    <div class="research-grid reveal">
-      <a class="research-card" href="https://xhyccc.github.io/pohe/" target="_blank" rel="noopener">
-        <span class="research-kicker">Field guide / 2026</span>
-        <h3>Pattern-Oriented Harness Engineering</h3>
-        <p>A field guide to 52 harness design records: UML class views, object interactions, pointcuts, protected contracts, permitted variation, evidence, and lifecycle questions.</p>
-        <div class="research-tags"><span>52 records</span><span>A² taxonomy</span><span>UML + interactions</span><span>Evidence ladder</span></div>
-        <span class="research-link">xhyccc.github.io/pohe ↗</span>
-      </a>
-      <a class="research-card" href="https://xhyccc.github.io/pohe/agent.html" target="_blank" rel="noopener">
-        <span class="research-kicker">Open agent package</span>
-        <h3>POHE Agent</h3>
-        <p>An agent, CLI, and three skills that detect pattern cues in an arbitrary repository, pull structural candidates into source review, and plan pattern-guided harness evolution without losing the protected contract.</p>
-        <div class="research-tags"><span>AGENTS.md</span><span>3 skills</span><span>stdlib CLI</span><span>MIT</span></div>
-        <span class="research-link">xhyccc.github.io/pohe/agent.html ↗</span>
-      </a>
     </div>
   </div>
 </section>
@@ -889,6 +972,34 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<!-- ═══════════════ GOOGLE SCHOLAR METRICS ═══════════════ -->
+<script>
+  (function () {
+    const root = document.getElementById('scholar-metrics');
+    if (!root) return;
+    const set = (key, value) => {
+      const node = root.querySelector('[data-scholar="' + key + '"]');
+      if (node && value !== undefined && value !== null) node.textContent = value;
+    };
+    fetch('assets/scholar-metrics.json', { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : Promise.reject(response.status))
+      .then((data) => {
+        set('citations', Number(data.citations).toLocaleString('en-US'));
+        set('hindex', data.h_index);
+        set('i10', data.i10_index);
+        if (data.retrieved_at) {
+          const date = new Date(data.retrieved_at);
+          if (!Number.isNaN(date.getTime())) {
+            set('updated', '· ' + date.toLocaleDateString('en-US', {
+              year: 'numeric', month: 'short', day: 'numeric'
+            }));
+          }
+        }
+      })
+      .catch(() => { /* keep the last known values baked into the page */ });
+  })();
 </script>
 </body>
 </html>
